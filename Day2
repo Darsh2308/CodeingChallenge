@@ -1,0 +1,22 @@
+def find_missing_number(arr, n):
+  """
+  Finds the missing integer in the array from 1 to n.
+
+  :param arr: List of integers containing n-1 distinct values from 1 to n.
+  :param n: The full sequence should have numbers from 1 to n.
+  :return: The missing integer.
+  """
+  total = n * (n + 1) // 2
+  actual_sum = sum(arr)
+  return total - actual_sum
+
+
+
+print(find_missing_number([1, 2, 4, 5], 5))  
+print(find_missing_number([2, 3, 4, 5], 5))  
+print(find_missing_number([1, 2, 3, 4], 5))  
+print(find_missing_number([1], 2))
+print(find_missing_number(list(range(1, 1000000)), 1000000))  
+
+# if you are not getting the results for all the test cases 
+# make sure you run the code several times for getting result of each test case.
