@@ -1,0 +1,34 @@
+
+def find_leaders(arr):
+    leaders = []
+    max_from_right = float('-inf')
+ 
+    for num in reversed(arr):
+        if num > max_from_right:
+            leaders.append(num)
+            max_from_right = num
+    leaders.reverse()
+    return leaders
+
+
+test_cases = [
+
+    ([1, 2, 3, 4, 0], [4, 0]),
+    ([7, 10, 4, 10, 6, 5, 2], [10, 6, 5, 2]),
+    ([5], [5]),
+    ([100, 50, 20, 10], [100, 50, 20, 10]),
+    ([1, 2, 3, 1000000], [1000000]),
+    
+  
+    ([1, 2, 3, 4, 5, 6], [6]),     
+    ([6, 5, 4, 3, 2, 1], [6, 5, 4, 3, 2, 1]),
+]
+
+print("Leader Detection Test Cases:\n")
+for i, (input_arr, expected_output) in enumerate(test_cases, 1):
+    output = find_leaders(input_arr)
+    print(f"Test Case {i}:")
+    print(f"Input:    {input_arr}")
+    print(f"Expected: {expected_output}")
+    print(f"Output:   {output}")
+    print(f"Result:   {'PASS' if output == expected_output else 'FAIL'}\n")
